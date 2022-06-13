@@ -1,25 +1,12 @@
 import { getConfig } from '@testing-library/react';
-import { useState, useEffect } from 'react'
-import StocksData from '../components/StocksData'
+import { useState, useEffect } from 'react';
+import StocksData from '../components/StocksData';
 
 const Price = (props) => {
-    const symbol = StocksData.symbol;
 
-    const [stock, setStock] = useState(null);
+    console.log(props.renderProps);
+    const stock = props.renderProps.filter(stock => stock.symbol === props.match.params.symbol)[0];
 
-    const getStock = async () => {
-        setStock(data)
-    }
-
-    useEffect(() => {
-        getConfig()
-    }, [])
-
-    const loading = () => {
-        return <h2>Now Loading...</h2>
-    }
-
-    const loaded = () => {
         return (
             <div>
                 <h1>
@@ -42,8 +29,6 @@ const Price = (props) => {
                 </h3>
             </div>
         )
-    }
-    return stock ? loaded() : loading();
 };
 
 export default Price;

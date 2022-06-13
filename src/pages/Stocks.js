@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Stocks = (props) => {
     return (
-        <div className="currencies">
+        <div className="stocks">
             {StocksData.map((stock, index) => {
                 const { name, symbol, lastPrice, change, high, low, open } = stock;
                 
