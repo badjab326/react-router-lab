@@ -1,11 +1,9 @@
 import { getConfig } from '@testing-library/react';
 import { useState, useEffect } from 'react';
-import StocksData from '../components/StocksData';
 
 const Price = (props) => {
 
-    console.log(props.renderProps);
-    const stock = props.renderProps.filter(stock => stock.symbol === props.match.params.symbol)[0];
+    const stock = props.stockData.filter(stock => stock.symbol === props.match.params.symbol)[0];
 
         return (
             <div>

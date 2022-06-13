@@ -5,6 +5,7 @@ import About from './pages/About'
 import Home from './pages/Home'
 import Price from './pages/Price'
 import Stocks from './pages/Stocks'
+import StockData from './components/StocksData'
 
 
 function App() {
@@ -17,12 +18,11 @@ function App() {
         <Route path="/about">
           <About />
         </Route>
-        <Route path="/stocks">
+        <Route exact path="/stocks">
           <Stocks />
         </Route>
-        <Route path="/price/:symbol" render={(renderProps) => {
-          return <Price {...renderProps} />
-        }} />
+        <Route path="/stocks/:symbol" render={props => <Price stockData={StockData} {...props} />
+        } />
     </div>
   );
 }
